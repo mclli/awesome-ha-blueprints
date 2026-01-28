@@ -160,6 +160,16 @@ blueprint:
       default: []
       selector:
         action:
+    # input for repeat delay between looping actions
+    repeat_delay:
+      name: Delay for brightness decrement/increment or other looping actions (in milliseconds)
+      selector:
+        number:
+          min: 0.0
+          max: 1000.0
+          step: 1.0
+          mode: slider
+      default: 150
     # inputs for looping custom actions on long button press events until the corresponding release event is received
     button_left_long_loop:
       name: (Optional) Left button long press - loop until release
@@ -546,6 +556,11 @@ actions:
                   - repeat:
                       while: '{{ repeat.index < button_left_long_max_loop_repeats | int }}'
                       sequence: !input action_button_left_long
+                        - delay:
+                            hours: 0
+                            minutes: 0
+                            seconds: 0
+                            milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
             default: !input action_button_left_long
       - conditions:
@@ -630,6 +645,11 @@ actions:
                   - repeat:
                       while: '{{ repeat.index < button_right_long_max_loop_repeats | int }}'
                       sequence: !input action_button_right_long
+                        - delay:
+                            hours: 0
+                            minutes: 0
+                            seconds: 0
+                            milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
             default: !input action_button_right_long
       - conditions:
@@ -714,6 +734,11 @@ actions:
                   - repeat:
                       while: '{{ repeat.index < button_up_long_max_loop_repeats | int }}'
                       sequence: !input action_button_up_long
+                        - delay:
+                            hours: 0
+                            minutes: 0
+                            seconds: 0
+                            milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
             default: !input action_button_up_long
       - conditions:
@@ -797,6 +822,11 @@ actions:
                   - repeat:
                       while: '{{ repeat.index < button_down_long_max_loop_repeats | int }}'
                       sequence: !input action_button_down_long
+                        - delay:
+                            hours: 0
+                            minutes: 0
+                            seconds: 0
+                            milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
             default: !input action_button_down_long
       - conditions:
