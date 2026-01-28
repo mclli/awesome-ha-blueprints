@@ -555,8 +555,10 @@ actions:
                 sequence:
                   - repeat:
                       while: '{{ repeat.index < button_left_long_max_loop_repeats | int }}'
-                      sequence: 
-                        - !input action_button_left_long
+                      sequence:
+                        - choose:
+                            - conditions: []
+                              sequence: !input action_button_left_long
                         - delay:
                             milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
@@ -642,8 +644,10 @@ actions:
                 sequence:
                   - repeat:
                       while: '{{ repeat.index < button_right_long_max_loop_repeats | int }}'
-                      sequence: 
-                        - !input action_button_right_long
+                      sequence:
+                        - choose:
+                            - conditions: []
+                              sequence: !input action_button_left_long
                         - delay:
                             milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
@@ -729,8 +733,10 @@ actions:
                 sequence:
                   - repeat:
                       while: '{{ repeat.index < button_up_long_max_loop_repeats | int }}'
-                      sequence: 
-                        - !input action_button_up_long
+                      sequence:
+                        - choose:
+                            - conditions: []
+                              sequence: !input action_button_left_long
                         - delay:
                             milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
@@ -815,8 +821,10 @@ actions:
                 sequence:
                   - repeat:
                       while: '{{ repeat.index < button_down_long_max_loop_repeats | int }}'
-                      sequence: 
-                        - !input action_button_down_long
+                      sequence:
+                        - choose:
+                            - conditions: []
+                              sequence: !input action_button_left_long
                         - delay:
                             milliseconds: !input repeat_delay
             # if looping is not enabled run the custom action only once
